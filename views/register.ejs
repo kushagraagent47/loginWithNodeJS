@@ -1,9 +1,11 @@
 <div class="jumbotron">
     <form action ="/users/register" method="POST">
+      <% include ./partials/messages %>
   <div class="form-group has-success">
     <label class="form-control-label" for="inputSuccess1">Name</label>
     <input
       type="text"
+      name="name"
       value="<%= typeof name != 'undefined' ? name : '' %>"
       class="form-control is-valid"
       id="name"
@@ -14,6 +16,7 @@
     <label class="form-control-label" for="inputSuccess1">Email</label>
     <input
       type="text"
+      name="email"
       value="<%= typeof name != 'undefined' ? email : '' %>"
       class="form-control is-valid"
       id="email"
@@ -24,6 +27,7 @@
     <label class="form-control-label" for="inputSuccess1">Password</label>
     <input
       type="text"
+      name="password"
       value="<%= typeof name != 'undefined' ? password : '' %>"
       class="form-control is-valid"
       id="password"
@@ -36,6 +40,7 @@
           type="text"
           value="<%= typeof name != 'undefined' ? password2 : ''%>"
           class="form-control is-valid"
+          name="password2"
           id="password2"
         />
         <div class="valid-feedback">Confirm Password</div>
