@@ -72,8 +72,12 @@
                            </div>   
                         </div> 
                     </li>  -->
+                    <% if(typeof name !== 'undefined') { %>
+                    <li><a href="/users/logout">Logout</a></li>
+                    <% } else { %>
                     <li><a href="#modal1" class="waves-effect modal-trigger">Login</a></li>
                     <li><a href="#modal2" class="waves-effect modal-trigger">Signup</a></li>
+                    <% } %>
                     <li class="notifications search_sm"><a class="dropdown-button" href="#!" data-activates="dropdown5"><i class="ion-ios-search"></i></a>
                         <!-- Dropdown Structure -->
                         <ul id="dropdown5" class="dropdown-content">  
@@ -592,7 +596,6 @@
         </div>
     </nav>
     <!-- End  Header_Area --> 
-    
         <%- body %> 
         
     <!-- Footer area -->
@@ -823,10 +826,10 @@
               <li><a href="#" class="waves-effect google-plus"><i class="fa fa-google-plus"></i></a></li>
           </ul> -->
           <h6>or Sign in using email address</h6>
-          <form class="input_group"> 
+          <form class="input_group" action="/users/login" method="POST"> 
               <div class="input-field">
-                  <input  type="email" class="validate" placeholder="Email"> 
-                  <input type="password" class="validate" placeholder="Password"> 
+                  <input  type="email" class="validate" name="email" placeholder="Email"> 
+                  <input type="password" class="validate" name="password" placeholder="Password"> 
               </div>
               <p>
                   <input type="checkbox" id="test2" />
