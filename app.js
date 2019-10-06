@@ -17,7 +17,14 @@ mongoose.connect(db, { useNewUrlParser: true })
 .catch(err => console.log(err))
 ;
 
+
+
+app.get("/error", function(req, res) {
+    // docs is an array of all the documents in mycollection
+    res.render("error");
+  });
 //EJS
+
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/views'));

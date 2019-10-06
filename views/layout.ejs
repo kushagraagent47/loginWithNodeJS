@@ -40,8 +40,8 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <a href="#post_modal" class="waves-effect btn post_btn sm_post_btn modal-trigger"><i class="ion-plus"></i>Add Post</a>
                 <ul class="left_menu hide-on-med-and-down">
-                    <li><a href="index-2.html" class="active">Home</a></li>  
-                    <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown6">All Pages</a>
+                    <li><a href="/" class="active">Home</a></li>  
+                    <!-- <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown6">All Pages</a>
                         <div id="dropdown6" class="dropdown-content submenu row"> 
                            <div class="col m4 menu_column">
                                <ul>
@@ -71,9 +71,9 @@
                                </ul> 
                            </div>   
                         </div> 
-                    </li> 
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
+                    </li>  -->
+                    <li><a href="#modal1" class="waves-effect modal-trigger">Login</a></li>
+                    <li><a href="#modal2" class="waves-effect modal-trigger">Signup</a></li>
                     <li class="notifications search_sm"><a class="dropdown-button" href="#!" data-activates="dropdown5"><i class="ion-ios-search"></i></a>
                         <!-- Dropdown Structure -->
                         <ul id="dropdown5" class="dropdown-content">  
@@ -593,7 +593,7 @@
     </nav>
     <!-- End  Header_Area --> 
     
-        <%- body %>
+        <%- body %> 
         
     <!-- Footer area -->
     <footer class="footer_area">
@@ -731,12 +731,12 @@
   <!-- Add post poup area --> 
   <div id="post_modal" class="add_post modal">
       <h2>Create A New Post</h2> 
-      <form class="input_group"> 
+      <form class="input_group" action ="/" method="POST"> 
           <div class="input-field">
-              <input  type="text" class="validate" placeholder="Add a tittle"> 
-              <textarea class="textarea" placeholder="Add some description"></textarea>
+              <input  type="text" class="validate" name="title" placeholder="Add a tittle"> 
+              <textarea class="textarea" name="description" placeholder="Add some description"></textarea>
           </div> 
-          <div class="upload_photo row"> 
+          <!-- <div class="upload_photo row"> 
               <ul class="tabs tab_nav">
                   <li class="tab col s6"><a href="#photo"><i class="ion-ios-camera"></i>Add Photo</a></li>
                   <li class="tab col s6"><a class="" href="#video"><i class="ion-ios-videocam"></i>Add video</a></li> 
@@ -753,35 +753,35 @@
                       <h4>Select files to upload <small>or drag &amp; drop files</small></h4>
                   </div>
               </div> 
-          </div> 
+          </div>  -->
           <div class="input-field col s12 select_option">
-              <select> 
+              <select name="category"> 
                   <option value="" disabled selected>Choose a category</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option> 
-                  <option value="2">Option 2</option> 
-                  <option value="2">Option 2</option> 
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Tech">Tech</option> 
+                  <option value="Shopping">Shopping</option> 
+                  <option value="Advertising">Advertising</option> 
               </select> 
               
               <div class="chips chips-placeholder" data-index="0" data-initialized="true">
-                  <input class="input" placeholder="Enter a tag">
+                  <input class="input" name="tag" placeholder="Enter a tag">
               </div> 
           </div> 
           <div class="input-field add_link">
-              <input  type="text" class="validate" placeholder="Add a link">
+              <input  type="text" class="validate" name="link" placeholder="Add a link">
               <span>optional</span>
           </div>
-          <div class="yes_no">
+          <!-- <div class="yes_no">
               <h4>Anyone can submit?</h4>
               <div class="flipswitch"></div>
-          </div>
+          </div> -->
           <div class="row submit_btn_area"> 
-             <div class="col s6"> 
+             <!-- <div class="col s6"> 
                   <button class="waves-effect"><i class="ion-folder"></i>Save draft</button>
              </div>
              <div class="col s6"> 
                   <button class="waves-effect col s6"><i class="ion-eye"></i>Preview post</button>
-             </div>
+             </div> -->
              <div class="col s12"> 
                   <button class="waves-effect publish">Publish</button>
              </div>
@@ -794,12 +794,13 @@
   <div id="modal2" class="login_popup_aera modal">
       <div class="login_popup_row">
           <img src="/images/login-logo.png" alt="">
-          <h4>Create a new account to Open List or <a href="#modal1" class="modal-trigger modal-close">Sign in</a></h4> 
-          <form class="input_group"> 
+          <h4>Create a new account to MY BLOG or <a href="#modal1" class="modal-trigger modal-close">Sign in</a></h4> 
+          <form action="/users/register" method="POST" class="input_group"> 
               <div class="input-field">
-                  <input  type="text" class="validate" placeholder="Full Name"> 
-                  <input  type="email" class="validate" placeholder="Email"> 
-                  <input type="password" class="validate" placeholder="Password"> 
+                  <input  type="text" class="validate" name="name" placeholder="Username"> 
+                  <input  type="email" class="validate" name="email" placeholder="Email"> 
+                  <input type="password" class="validate" name="password" placeholder="Password">  
+                  <input type="password" class="validate" name="password2" placeholder="Confirm Password">  
               </div>
               <p>
                   <input type="checkbox" id="test" />
@@ -814,13 +815,13 @@
   <div id="modal1" class="login_popup_aera modal">
       <div class="login_popup_row">
           <img src="/images/login-logo.png" alt="">
-          <h4>Log in to Open List or <a href="#modal2" class="modal-trigger modal-close">create an account</a></h4>
-          <h6>Sign in using social media</h6>
+          <h4>Log in to My Blog or <a href="#modal2" class="modal-trigger modal-close">create an account</a></h4>
+          <!-- <h6>Sign in using social media</h6>
           <ul class="with_social">
               <li><a href="#" class="waves-effect"><i class="fa fa-twitter"></i></a></li>
               <li><a href="#" class="waves-effect facebook"><i class="fa fa-facebook-square"></i></a></li>
               <li><a href="#" class="waves-effect google-plus"><i class="fa fa-google-plus"></i></a></li>
-          </ul>
+          </ul> -->
           <h6>or Sign in using email address</h6>
           <form class="input_group"> 
               <div class="input-field">

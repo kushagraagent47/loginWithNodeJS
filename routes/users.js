@@ -56,7 +56,7 @@ router.post('/register', (req, res) => {
                             newUser.save()
                                 .then(user => {
                                     req.flash('success_msg','You are now in the team,now login');
-                                    res.redirect('/users/login');
+                                    res.redirect('/');
                                 })
                                 .catch(err => console.log(err))
                         }))
@@ -64,7 +64,7 @@ router.post('/register', (req, res) => {
         });
     }
 });
-// LOGIN HANDLE
+
 // Login
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
