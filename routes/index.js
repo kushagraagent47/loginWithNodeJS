@@ -5,12 +5,32 @@ const passport = require('passport');
 
 const Post = require('../models/Post')
 
+
+
+// app.get("/", function(req, res) {
+//   db.users.find(function(err, docs) {
+//     // docs is an array of all the documents in mycollection
+
+//     res.render("index", {
+//       title: "Customers",
+//       users: docs
+//     });
+//   });
+// });
 //WELCOME
-router.get('/', (req,res) => res.render('welcome'));
+router.get('/', function(req,res) {
+  Post.find(function(err, docs){
+//    console.log(docs);
+    res.render("welcome", {
+      users: docs
+    });
+  });
+});
 //Post Handler
 router.post('/', (req, res) => {
-  const { title, description, category, tag, link } = req.body;
+  const { user, title, description, category, tag, link } = req.body;
   const newPost = new Post({
+    user: user,
     title: title,
     category: category,
     description: description,

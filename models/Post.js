@@ -5,6 +5,10 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    user: {
+        type: String,
+        required: false
+    },
     description: {
         type: String,
         required: false

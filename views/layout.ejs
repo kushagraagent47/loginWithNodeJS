@@ -726,7 +726,7 @@
           </div> 
       </div>
       <div class="copy_right">
-          <a target="_blank" href="https://www.templateshub.net">Templates Hub</a>
+          <a target="_blank" href="https://www.github.com/kushagraagent47">Develper @kushagraagent47</a>
       </div>
   </footer> 
   <!-- End Footer area --> 
@@ -735,7 +735,13 @@
   <div id="post_modal" class="add_post modal">
       <h2>Create A New Post</h2> 
       <form class="input_group" action ="/" method="POST"> 
-          <div class="input-field">
+        <% if(typeof name !== 'undefined') { %>
+
+        <input type="hidden" name="user" value="<%= name %>">
+<% } else { %>
+    <input type="hidden" name="user" value="Anonymous">
+<% } %>
+    <div class="input-field">
               <input  type="text" class="validate" name="title" placeholder="Add a tittle"> 
               <textarea class="textarea" name="description" placeholder="Add some description"></textarea>
           </div> 

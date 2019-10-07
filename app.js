@@ -19,6 +19,8 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 
 
+
+
 app.get("/error", function(req, res) {
     // docs is an array of all the documents in mycollection
     res.render("error");
