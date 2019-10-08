@@ -3,6 +3,7 @@
     <li class="tab"><a href="#latest" class="waves-effect btn active">Latest</a></li>
     <!-- <li class="tab"><a href="#trending" class="waves-effect btn">Trending</a></li>
     <li class="tab"><a href="#featured" class="waves-effect btn">Featured</a></li>    -->
+
 </ul>
 <div class="banner_area">
     <img src="images/banner.jpg" alt="" class="banner_img">
@@ -14,7 +15,7 @@
       <div class="middle_section col" id="infinite_scroll"> 
       <div id="latest"> 
           <!-- Post -->
-          <div class="fast_post">
+          <div class="fast_post"  data-step="1" data-intro="Welcome To myBlog, here you can see posts" data-position='right' data-scrollTo='tooltip'>
                 <% users.forEach(function(results){ %>
 
               <div class="post">

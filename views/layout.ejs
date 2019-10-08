@@ -21,7 +21,9 @@
     <link rel="stylesheet" href="/vendors/calendar/dcalendar.picker.css"> 
     <!-- Calendar CSS-->
     <link rel="stylesheet" href="/vendors/check-button/jqflipswitch.default.style.css"> 
-    
+    <!-- Intro JS-->
+    <link href="/intro/introjs.css" rel="stylesheet">
+
     <!--Theme Styles CSS-->
 	<link rel="stylesheet" href="/css/style.css" media="all" /> 
 
@@ -41,6 +43,9 @@
                 <a href="#post_modal" class="waves-effect btn post_btn sm_post_btn modal-trigger"><i class="ion-plus"></i>Add Post</a>
                 <ul class="left_menu hide-on-med-and-down">
                     <li><a href="/" class="active">Home</a></li>  
+                    <li><a href="javascript:void(0);" onclick="javascript:introJs().start();">Get Started</a></li>  
+                    
+
                     <!-- <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown6">All Pages</a>
                         <div id="dropdown6" class="dropdown-content submenu row"> 
                            <div class="col m4 menu_column">
@@ -75,8 +80,8 @@
                     <% if(typeof name !== 'undefined') { %>
                     <li><a href="/users/logout">Logout</a></li>
                     <% } else { %>
-                    <li><a href="#modal1" class="waves-effect modal-trigger">Login</a></li>
-                    <li><a href="#modal2" class="waves-effect modal-trigger">Signup</a></li>
+                    <li><a href="#modal1" class="waves-effect modal-trigger" data-step="2" data-intro="If you want to upvote post,you need to login" data-position='right' data-scrollTo='tooltip'>Login</a></li>
+                    <li><a href="#modal2" class="waves-effect modal-trigger" data-step="3" data-intro="Or just create an account,its easy and simple ;)" data-position='right' data-scrollTo='tooltip'>Signup</a></li>
                     <% } %>
                     <li class="notifications search_sm"><a class="dropdown-button" href="#!" data-activates="dropdown5"><i class="ion-ios-search"></i></a>
                         <!-- Dropdown Structure -->
@@ -94,7 +99,7 @@
                             <li><a href="#" class="search_icon"><i class="ion-ios-search"></i></a> </li> 
                        </ul>
                     </li>
-                    <li><a href="#post_modal" class="waves-effect btn post_btn modal-trigger"><i class="ion-plus"></i><span>Add Post</span></a></li> 
+                    <li><a href="#post_modal" class="waves-effect btn post_btn modal-trigger" data-step="4" data-intro="But still you can add some post,you will be anonymous" data-position='right' data-scrollTo='tooltip'><i class="ion-plus"></i><span>Add Post</span></a></li> 
                     <!-- Follow feed -->
                     <% if(typeof name !== 'undefined') { %>
 
@@ -851,7 +856,9 @@
       </div>
   </div>  
   <!-- End Popup area -->   
-  
+  <!-- Intro JS -->
+  <script type="text/javascript" src="/intro/intro.js"></script>
+
   <!-- jQuery JS -->
   <script src="/js/jquery-3.3.1.min.js"></script>  
   <!-- Materialize JS -->
