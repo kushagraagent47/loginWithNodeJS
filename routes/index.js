@@ -40,16 +40,19 @@ router.post('/', (req, res) => {
   newPost.save()
   .then(
     post => {
-      res.redirect('/');
+      res.redirect('/dashboard/');
     })
   .catch(err => console.log(err));
 });
-//DASHBOARD
 // Dashboard
-router.get('/dashboard', ensureAuthenticated, (req, res) =>
-res.render('dashboard', {
-  name: req.user.name,
-  title: "hey"
-})
-);
+router.get('/dashboard', ensureAuthenticated, function(req, res) {
+  Post.find(function(err, docs){
+  res.render("dashboard", {
+    name: req.user.name,
+    users: docs
+  });
+});
+});
+
+
 module.exports = router;
