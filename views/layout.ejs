@@ -345,28 +345,19 @@
                             <a href="#" class="search_icon"><i class="ion-ios-search"></i></a> 
                        </div>
                     </li>
-                    <li><a href="index-2.html">Home</a></li>
-                    <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s0">All Pages</a>
-                        <!-- Dropdown Structure -->
-                        <ul id="dropdown_s0" class="dropdown-content">  
-                           <li><a href="get-started.html">Get started</a></li>
-                           <li><a href="dashboard.html">Dashboard</a></li>
-                           <li><a href="details.html">Post details</a></li>
-                           <li><a href="details-2.html">Post details 2</a></li>
-                           <li><a href="profile.html">Profile</a></li>
-                           <li><a href="messages.html">Messages</a></li>
-                           <li><a href="requests.html">Requests</a></li>
-                           <li><a href="read-later.html">Read-Later</a></li>
-                           <li><a href="notifications.html">Notifications</a></li>
-                           <li><a href="block-list.html">Block-list</a></li>
-                           <li><a href="photos.html">Photos</a></li>
-                           <li><a href="photos-2.html">Photos v2</a></li>
-                           <li><a href="video.html">Videos</a></li>
-                           <li><a href="block-list.html">Error (404)</a></li>
-                        </ul>
-                    </li> 
-                    <li><a href="#">Shortcodes</a></li>
-                    <li><a href="#">All Elements</a></li>  
+                    <li><a href="/">Home</a></li>
+                    
+                    <% if(typeof name !== 'undefined') { %>
+
+                    <li><a href="/users/logout">Logout</a></li>  
+<% } else { %>
+    <li><a href="#modal1" class="waves-effect modal-trigger">Login</a></li>
+    <li><a href="#modal2" class="waves-effect modal-trigger">Signup</a></li>  
+    <li><a href="javascript:void(0);" onclick="javascript:introJs().start();">Get Started</a></li>  
+
+<% } %>
+<% if(typeof name !== 'undefined') { %>
+
                     <!-- Follow feed -->
                     <li class="notifications follow"><a class="dropdown-button" href="#!" data-activates="dropdown_s1"><i class="ion-ios-person-outline"></i><b class="n-number">7</b></a>
                         <!-- Dropdown Structure -->
@@ -590,17 +581,12 @@
                     <li class="user_dropdown"><a class="dropdown-button" href="#!" data-activates="dropdown_s4"><img src="/images/profile-pic.png" alt="" class="circle p_2"></a>
                         <!-- Dropdown Structure -->
                         <ul id="dropdown_s4" class="dropdown-content">
-                            <li><a href="profile.html"><i class="ion-person"></i>My profile</a></li> 
-                            <li><a href="read-later.html"><i class="ion-android-folder-open"></i>Saved Articles</a></li> 
-                            <li class="b_t"><a href="#"><i class="ion-android-notifications"></i>Notification settings</a></li>
-                            <li class="b_b"><a href="#"><i class="ion-ios-locked"></i>Change Password</a></li>
-                            <li><a href="#"><i class="ion-gear-b"></i>Settings</a></li>
-                            <li><a href="#"><i class="ion-ios-flag"></i>Privacy Policy</a></li>
-                            <li><a href="#"><i class="ion-podium"></i>FAQ</a></li>
-                            <li><a href="#"><i class="ion-power"></i>Log out</a></li>
+                            <li><a href="profile.html"><i class="ion-person"></i><%= name %></a></li> 
+                            <li><a href="/users/logout"><i class="ion-power"></i>Log out</a></li>
                         </ul>
                     </li>
                 </ul>
+<% } %>
             </div>
         </div>
     </nav>
