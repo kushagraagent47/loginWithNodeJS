@@ -6,11 +6,14 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+//google auth
+const auth = require('./routes/auth');
 //Passport
 require('./config/passport')(passport);
 //DB CONFIG
 const db = require('./config/keys').MongoURI;
 
+app.use('/auth', auth);
 //Connection to MONGO
 mongoose.connect(db, {useUnifiedTopology: true,useNewUrlParser: true })
 .then(() => console.log('Mongo DB CONNECTED'))
