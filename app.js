@@ -12,14 +12,10 @@ require('./config/passport')(passport);
 const db = require('./config/keys').MongoURI;
 
 //Connection to MONGO
-mongoose.connect(db, { useNewUrlParser: true })
+mongoose.connect(db, {useUnifiedTopology: true,useNewUrlParser: true })
 .then(() => console.log('Mongo DB CONNECTED'))
 .catch(err => console.log(err))
 ;
-
-
-
-
 
 app.get("/error", function(req, res) {
     // docs is an array of all the documents in mycollection

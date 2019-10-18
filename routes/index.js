@@ -49,6 +49,7 @@ router.get('/dashboard', ensureAuthenticated, function(req, res) {
   Post.find(function(err, docs){
   res.render("dashboard", {
     name: req.user.name,
+    email: req.user.email,
     users: docs
   });
 });

@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 const passport = require('passport');
+const Post = require('../models/Post')
 //USER MODAL
 const User = require('../models/User')
 //LOGIN
@@ -10,6 +12,18 @@ router.get('/login', (req,res) => res.render('login'));
 //Register
 router.get('/register', (req,res) => res.render('register'));
 
+//Profile
+router.get('/profile', ensureAuthenticated, function(req, res) {
+    Post.find({user: req.user.name},(function(err, docs){
+    res.render("profile", {
+      name: req.user.name,
+      users: docs
+    });
+    console.log(docs);
+
+    }));
+  });
+  
 //Rgister Handler
 router.post('/register', (req, res) => {
     const { name, email, password, password2 } = req.body;
