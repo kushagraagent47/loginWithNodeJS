@@ -48,6 +48,9 @@ app.use(passport.session());
 //CONNECT FLASH
 app.use(flash());
 
+app.get('/google12cfc68677988bb4.html', function (req, res) {
+  res.sendFile(views+"/google12cfc68677988bb4.html");
+ })
 // Global variables
 app.use(function(req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
