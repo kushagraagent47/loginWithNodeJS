@@ -57,20 +57,21 @@
            <!-- Post -->
            
            <!-- Post -->
-          
+           <% users.forEach(function(results){ %>
+
             
            <!-- Post -->
             <div class="post">
                <div class="post_content"> 
                     <a href="#" class="post_img">
                         <img src="/images/post-5.jpg" alt="">
-                        <span><i class="ion-android-radio-button-off"></i>Technology</span>
+                        <span><i class="ion-android-radio-button-off"></i><%= results.category %></span>
                     </a>
                     <div class="row author_area">
                         <div class="col s4 author">
                             <div class="col s4 media_left"><img src="/images/author-1.jpg" alt="" class="circle"></div>
                             <div class="col s8 media_body">
-                                <a href="#">Masum Rana</a>
+                                <a href="#"><%= results.user %></a>
                                 <span>5 Minute ago</span>
                             </div>
                         </div>
@@ -94,8 +95,8 @@
                             </ul>  
                         </div>
                     </div>
-                    <a href="#" class="post_heding">Get Around Easily With A New York Limousine Service</a>
-                    <p>In the last 10 years Americans have seen a boom in local food markets and for good reason. While Americans continue to buy more fast food, they still expect perfect ingredients and they are finding them.</p>
+                    <a href="#" class="post_heding"><%= results.title %></a>
+                    <p><%= results.description %></p>
                </div>
                
                 <div class="like_comment_area row">
@@ -115,6 +116,8 @@
                 </div>
                 <a href="#" class="submit_open_list">Submit Open List</a>
             </div><!-- End Post -->
+            <% }) %>
+
            <!-- Post --> 
             <div class="pagination_area"> 
                 <ul class="pagination">

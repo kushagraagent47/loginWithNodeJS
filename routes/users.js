@@ -15,14 +15,12 @@ router.get('/register', (req,res) => res.render('register'));
 //Profile
 router.get('/profile', ensureAuthenticated, function(req, res) {
     Post.find({user: req.user.name},(function(err, docs){
-    res.render("profile", {
-      name: req.user.name,
-      users: docs
-    });
-    console.log(docs);
-
+        res.render("profile", {
+          name: req.user.name,
+         users: docs
+        });
     }));
-  });
+});
   
 //Rgister Handler
 router.post('/register', (req, res) => {
