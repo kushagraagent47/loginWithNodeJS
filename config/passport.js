@@ -1,25 +1,13 @@
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const GoogleStrategy = require('passport-google-oauth20').strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const keys = require('./keys');
 //Load user modal 
 const User = require('../models/User');
 
 
-module.exports = function(passport){
-    passport.use(
-      new GoogleStrategy({
-        clientID: keys.googleClientID,
-        clientSecret:keys.googleClientSecret,
-        callbackURL:'/auth/google/callback',
-        proxy: true
-      }, (accessToken, refreshToken, profile, done) => {
-        console.log(accessToken);
-        console.log(profile);
-      })
-    )
-  }
+
 module.exports = function(passport) {
     passport.use(
         new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
@@ -54,3 +42,16 @@ module.exports = function(passport) {
         });
       });
 }
+module.exports = function(passport){
+    passport.use(
+      new GoogleStrategy({
+        clientID: keys.googleClientID,
+        clientSecret:keys.googleClientSecret,
+        callbackURL:'/auth/google/callback',
+        proxy: true
+      }, (accessToken, refreshToken, profile, done) => {
+        console.log(accessToken);
+        console.log(profile);
+      })
+    )
+  }
