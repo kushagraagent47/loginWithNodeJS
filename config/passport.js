@@ -55,6 +55,7 @@ module.exports = function(passport){
         // const newUser = {
         //     name: profile.name.givenName,
         const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
+        console.log(image);
         const email = profile.emails[0].value;
         const newUser = {
             name: profile.name.givenName,
