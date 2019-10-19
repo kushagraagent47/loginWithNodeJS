@@ -52,13 +52,12 @@ module.exports = function(passport){
       }, (accessToken, refreshToken, profile, done) => {
         // console.log(profile.displayName[0].value);
         // console.log(profile.email);
-        const newUser = {
-            name: profile.name.givenName,
-            email: profile.name.email
-        }
-        console.log(name);
-        console.log(email);
-
+        // const newUser = {
+        //     name: profile.name.givenName,
+        //     email: profile.name.email
+        // }
+        console.log(profile);
+     
         //Check For Existing User
         User.findOne({
             email: email
