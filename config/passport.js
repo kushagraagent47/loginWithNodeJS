@@ -54,7 +54,7 @@ module.exports = function(passport){
         // console.log(profile.email);
         const newUser = {
             name: profile.name.givenName,
-            email: profile.emails[0].value
+            email: profile.email[0].value
         }
 
         //Check For Existing User
