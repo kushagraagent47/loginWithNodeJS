@@ -17,6 +17,7 @@ router.get('/profile', ensureAuthenticated, function(req, res) {
     Post.find({user: req.user.name},(function(err, docs){
         res.render("profile", {
           name: req.user.name,
+          img: req.user.img,
          users: docs
         });
     }));
