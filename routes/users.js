@@ -24,7 +24,7 @@ router.get('/profile', ensureAuthenticated, function(req, res) {
   
 //Rgister Handler
 router.post('/register', (req, res) => {
-    const { name, email, password, password2 } = req.body;
+    const { name, email, password, img, password2 } = req.body;
     let errors = [];
     if(password !== password2) {
         errors.push({ msg: 'Password do not match' });
@@ -56,6 +56,7 @@ router.post('/register', (req, res) => {
                 const newUser = new User({
                     name: name,
                     email: email,
+                    img: img,
                     password: password
                 });
                     //HASH PASSWORD
