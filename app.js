@@ -15,7 +15,6 @@ const auth = require('./routes/auth');
 //DB CONFIG
 const db = require('./config/keys').MongoURI;
 
-app.use('/auth', auth);
 //Connection to MONGO
 mongoose.connect(db, {useUnifiedTopology: true,useNewUrlParser: true })
 .then(() => console.log('Mongo DB CONNECTED'))
@@ -64,6 +63,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use('/auth', auth);
 
 //ROUTES
 app.use('/', require('./routes/index'));
