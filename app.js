@@ -11,7 +11,6 @@ const passport = require('passport');
 require('./config/passport')(passport);
 
 //google auth
-const auth = require('./routes/auth');
 //DB CONFIG
 const db = require('./config/keys').MongoURI;
 
@@ -50,6 +49,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+const auth = require('./routes/auth');
 
 app.use('/auth', auth);
 
