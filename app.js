@@ -1,7 +1,7 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts')
 const app = express();
-
+const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
@@ -38,6 +38,7 @@ app.use(express.urlencoded({ extended: false}));
 //EXPRESS SESSION 
 
 // Express session
+app.use(cookieParser());
 app.use(
     session({
       secret: 'secret',
@@ -63,12 +64,12 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/auth', auth);
 
 //ROUTES
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 
+app.use('/auth', auth);
 
 const PORT = process.env.PORT || 5000;
 
