@@ -54,12 +54,14 @@ module.exports = function(passport){
         // console.log(profile.email);
         // const newUser = {
         //     name: profile.name.givenName,
+        const email = profile.emails[0].value;
         const newUser = {
             firstName: profile.name.givenName,
             lastName: profile.name.familyName,
-            email: profile.emails[0].value          }
+            email: profile.emails[0].value
+        }
     
-     console.log(newUser);
+     console.log(email);
         //Check For Existing User
         User.findOne({
             email: email
