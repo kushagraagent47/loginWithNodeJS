@@ -50,6 +50,7 @@ router.get('/dashboard', ensureAuthenticated, function(req, res) {
   res.render("dashboard", {
     name: req.user.name,
     email: req.user.email,
+    img: req.user.img,
     users: docs
   });
 });

@@ -55,7 +55,7 @@ module.exports = function(passport){
         // const newUser = {
         //     name: profile.name.givenName,
         const image = profile.photos[0].value;
-        console.log(image);
+        // console.log(image);
         const email = profile.emails[0].value;
         const newUser = {
             name: profile.name.givenName,
@@ -63,7 +63,7 @@ module.exports = function(passport){
             email: profile.emails[0].value
         }
     
-     console.log(email);
+    //  console.log(email);
         //Check For Existing User
         User.findOne({
             email: email
