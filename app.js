@@ -9,6 +9,7 @@ const passport = require('passport');
 
 //Passport
 require('./config/passport')(passport);
+require('./config/passport_login')(passport);
 
 //google auth
 const auth = require('./routes/auth');

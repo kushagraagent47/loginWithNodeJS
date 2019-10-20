@@ -5,10 +5,6 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    user: {
-        type: String,
-        required: false
-    },
     description: {
         type: String,
         required: false
@@ -24,6 +20,10 @@ const PostSchema = new mongoose.Schema({
     link: {
         type: String,
         required: false
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'users'
     },
     date: {
         type: Date,
