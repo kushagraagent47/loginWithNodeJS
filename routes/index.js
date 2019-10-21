@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const { user, title, description, category, tag, link } = req.body;
   const newPost = new Post({
-    user: req.user.id,
+    user: user,
     title: title,
     category: category,
     description: description,
