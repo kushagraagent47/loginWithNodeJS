@@ -3,7 +3,8 @@ const router = express.Router();
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 const passport = require('passport');
 
-const Post = require('../models/Post')
+const Post = require('../models/Post');
+const User = require('../models/User');
 
 
 
@@ -18,13 +19,24 @@ const Post = require('../models/Post')
 //   });
 // });
 //WELCOME
-router.get('/', function(req,res) {
-  Post.find(function(err, docs){
-//    console.log(docs);
-    res.render("welcome", {
-      users: docs
+// router.get('/', (req,res) => {
+//   Post.find({})
+//   .populate('User')
+//   .then(docs => {
+//     res.render('welcome', {
+//       users: docs
+//     });
+//     console.log(docs);
+//   });
+// });
+router.get('/', (req, res) => {
+  Post.find({})
+    .populate('User').exec()
+    .then(stories => {
+      res.render('welcome', {
+        users: stories
+      });
     });
-  });
 });
 //Post Handler
 router.post('/', (req, res) => {
